@@ -53,26 +53,12 @@ function sistem() {
 
 sistem();
 
+// user undefined karena hoisting pada var
+// score g bisa diakses oleh tampil() karena block scope nya let
+
+// Solusinya adalah menempatkan score pada scope yang dapat diakses oleh fungsi tampil().
+// Gunakan let atau const daripada var agar kode lebih aman dan mudah dipahami.
 
 
 
 
-// versi yang sudah di perbaiki
-// *user* nya belum di kasih nilai undefined.
-// score berada di block scope yang berbeda sehingga menyebabkan ReferenceError.
-// Struktur scope kurang baik karena variabel ditempatkan pada blok yang tidak diperlukan.
-// user dipanggil sebelum diberi nilai sehingga menghasilkan undefined.
-function sistem() {
-
-    const user = "Ari";
-    const score = 90;
-
-    function tampil() {
-        console.log("User :", user);
-        console.log("Score:", score);
-    }
-
-    tampil();
-}
-
-sistem();

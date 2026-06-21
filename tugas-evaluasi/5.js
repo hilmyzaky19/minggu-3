@@ -1,51 +1,4 @@
-// Soal 5 — Sistem Peringkat Dinamis (Final Boss)
 
-// Diberikan data:
-
-// const peserta = [
-//   {
-//     nama: "Ari",
-//     nilai: [90, 80, 85]
-//   },
-//   {
-//     nama: "Bima",
-//     nilai: [100, 60, 70]
-//   },
-//   {
-//     nama: "Citra",
-//     nilai: [95, 90, 88]
-//   }
-// ];
-
-// Buat function:
-
-// buatLeaderboard(data)
-
-// Function harus mengembalikan object yang memiliki method:
-
-// leaderboard.tambahPeserta(...)
-// leaderboard.hapusPeserta(...)
-// leaderboard.ubahNilai(...)
-// leaderboard.ranking()
-// leaderboard.riwayat()
-
-// Ketentuan
-
-// - Data asli tidak boleh berubah.
-// - Ranking harus selalu diperbarui otomatis.
-// - Riwayat perubahan harus tersimpan.
-// - Riwayat harus memiliki timestamp.
-// - Data internal tidak boleh bisa diakses langsung dari luar.
-
-// Wajib menggunakan
-
-// - Closure
-// - Date Object
-// - Destructuring
-// - Spread Operator
-// - Rest Parameter
-
-// ---
 
 const peserta = [
     {
@@ -133,3 +86,25 @@ function buatLeaderboard(data = []) {
         }
     };
 }
+const leaderboard = buatLeaderboard(peserta);
+
+console.log("--- RANKING AWAL ---");
+console.log(leaderboard.ranking());
+
+leaderboard.tambahPeserta("Doni", 80, 85, 90);
+
+console.log("--- SETELAH TAMBAH PESERTA ---");
+console.log(leaderboard.ranking());
+
+leaderboard.ubahNilai("Bima", 95, 90, 100);
+
+console.log("--- SETELAH UBAH NILAI BIMA ---");
+console.log(leaderboard.ranking());
+
+leaderboard.hapusPeserta("Ari");
+
+console.log("--- SETELAH HAPUS ARI ---");
+console.log(leaderboard.ranking());
+
+console.log("---- RIWAYAT PERUBAHAN ----");
+console.log(leaderboard.riwayat());
